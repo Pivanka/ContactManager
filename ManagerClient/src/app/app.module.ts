@@ -12,6 +12,7 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
 import { SortPipe } from './pipes/sort.pipe';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     AddContactsComponent,
     ContactListComponent,
     EditContactComponent,
-    SortPipe
+    SortPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

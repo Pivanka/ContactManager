@@ -14,6 +14,9 @@ export class ContactListComponent implements OnInit {
   contacts!: Array<CONTACT>;
   sortByParam = '';
   sortDirection = 'asc';
+  filterByParam = '';
+  filterString = '';
+  searchField = '';
 
   constructor(private contactService: ContactService,
     public dialog: MatDialog) { }
@@ -51,6 +54,15 @@ export class ContactListComponent implements OnInit {
     } else {
       this.sortDirection = 'desc';
     }
+  }
+
+  onFieldFilter(filter: string){
+    this.searchField = filter;
+  }
+
+  clear(){
+    this.searchField = '';
+    this.filterString = '';
   }
 
 }

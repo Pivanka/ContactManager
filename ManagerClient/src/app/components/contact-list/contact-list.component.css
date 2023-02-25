@@ -42,6 +42,15 @@ button{
   border-radius: 3px;
 }
 
+.btn{
+  background-color: #C2EBD5;
+}
+
+.btn:hover{
+  background-color: #1D7C4D;
+  color: white;
+}
+
 .edit{
   background-color: #CDDDFF;
 }

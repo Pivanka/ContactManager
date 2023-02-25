@@ -1,17 +1,29 @@
 <main class="list">
   <div class="list__header">
     <a routerLink="/upload">Upload new contacts</a>
-    <div class="sorting">
-      <label>Sort by field</label>
-      <select [(ngModel)] = 'sortByParam'>
-        <option value="id">Id</option>
-        <option value="name">Name</option>
-        <option value="dateOfBirth">Date Of Birth</option>
-        <option value="married">Married</option>
-        <option value="phone">Phone</option>
-        <option value="salary">Salary</option>
-      </select>
-      <button (click)="onSortDirection()">Sort</button>
+    <div class="data">
+      <div class="sorting">
+        <label>Sort by field</label>
+        <select [(ngModel)] = 'sortByParam'>
+          <option value="name">Name</option>
+          <option value="dateOfBirth">Date Of Birth</option>
+          <option value="married">Married</option>
+          <option value="phone">Phone</option>
+          <option value="salary">Salary</option>
+        </select>
+        <button class="btn" (click)="onSortDirection()">Sort</button>
+      </div>
+      <div class="filtering">
+        <label>Filter by field</label>
+        <select [(ngModel)] = 'filterByParam'>
+          <option value="name">Name</option>
+          <option value="dateOfBirth">Date Of Birth</option>
+          <option value="phone">Phone</option>
+        </select>
+        <input [(ngModel)]="filterString">
+        <button class="btn" (click)="onFieldFilter(filterByParam)">Search</button>
+        <button class="btn" (click)="clear()">Clear</button>
+      </div>
     </div>
   </div>
   <div *ngIf="contacts">
@@ -28,7 +40,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of contacts | sort:sortByParam:sortDirection">
+        <tr *ngFor="let item of contacts | filter:filterString:searchField | sort:sortByParam:sortDirection">
           <td>{{item.id}}</td>
           <td>{{item.name}}</td>
           <td>{{item.dateOfBirth}}</td>
