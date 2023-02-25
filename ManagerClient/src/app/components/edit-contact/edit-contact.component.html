@@ -1,0 +1,41 @@
+<div class="contact" *ngIf="contact">
+  <div class="contact__container">
+    <div class="contact__title">
+      <h2>Contact №{{contact.id}}</h2>
+    </div>
+    <div class="contact__main">
+      <form class="form" [formGroup]="editForm" *ngIf="this.editForm">
+        <div class="form__table">
+            <div class="form__column">
+              <div [ngClass]="getClass(name)">
+                <label>Name</label>
+                <input type="text" placeholder="Input name" formControlName="name">
+              </div>
+
+              <div [ngClass]="getClass(dateOfBirth)">
+                <label>Date of birth</label>
+                <input type="text" placeholder="dd.MM.yyyy" formControlName="dateOfBirth">
+              </div>
+
+              <div [ngClass]="getClass(married)">
+                <label>Married</label>
+                <input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" formControlName="married">
+              </div>
+
+              <div [ngClass]="getClass(phone)">
+                <label>Phone</label>
+                <input type="text" placeholder="Input phone" formControlName="phone">
+              </div>
+            </div>
+            <div class="form-control">
+              <label>Salary</label>
+              <input type="number" placeholder="Input salary" formControlName="salary"/>
+            </div>
+        </div>
+        <div class="form__buttons">
+          <button class="form__button" (click)="edit()">Edit</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>

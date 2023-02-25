@@ -1,0 +1,46 @@
+<main class="list">
+  <div class="list__header">
+    <a routerLink="/upload">Upload new contacts</a>
+    <div class="sorting">
+      <label>Sort by field</label>
+      <select [(ngModel)] = 'sortByParam'>
+        <option value="id">Id</option>
+        <option value="name">Name</option>
+        <option value="dateOfBirth">Date Of Birth</option>
+        <option value="married">Married</option>
+        <option value="phone">Phone</option>
+        <option value="salary">Salary</option>
+      </select>
+      <button (click)="onSortDirection()">Sort</button>
+    </div>
+  </div>
+  <div *ngIf="contacts">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date Of Birth</th>
+          <th scope="col">Married</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of contacts | sort:sortByParam:sortDirection">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.dateOfBirth}}</td>
+          <td>{{item.married}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.salary}}</td>
+          <td>
+            <button class="edit" (click)="edit(item.id)">edit</button>
+            <button class="delete" (click)="deleteContact(item.id)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

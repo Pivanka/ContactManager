@@ -1,0 +1,42 @@
+.upload {
+  margin: 20px;
+  margin-top: 0px;
+}
+
+.upload__header {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E9ECEF;
+}
+
+h2{
+  padding: 10px 0px;
+}
+
+label{
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
+.form__table {
+  margin-top: 20px;
+}
+
+button{
+  margin: 5px;
+  background-color: #C2EBD5;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  line-height: 15px;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+button:hover{
+  background-color: #1D7C4D;
+  color: white;
+}

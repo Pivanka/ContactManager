@@ -1,0 +1,28 @@
+<section class="upload">
+  <div class="upload__container">
+      <div class="upload__form">
+          <div class="upload__header">
+            <button class="form__button" (click)="back()">Back</button>
+            <h2>Upload new contacts</h2>
+          </div>
+        <form class="form" [formGroup]="uploadForm" *ngIf="this.uploadForm">
+            <div class="form__table">
+                <div class="form__column">
+                  <div class="form-control">
+                    <label>File</label>
+                    <input type="file" placeholder="Upload file" accept=".csv" formControlName="file" (change)="onFileChange($event)">
+                  </div>
+                </div>
+                <div>
+                  <span class="upload" *ngIf="progress > 0">
+                    {{progress}}%
+                  </span>
+                </div>
+              <div class="form__buttons">
+                <button class="form__button" (click)="upload()">Upload</button>
+              </div>
+            </div>
+        </form>
+      </div>
+  </div>
+</section>
